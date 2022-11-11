@@ -68,17 +68,13 @@ public class SecurePassword {
 
 
     // PRIVATE "HELPER" METHODS (marked "private" rather than "public" which means other
-    // methods in this class can call these methods, but code outside of this class cannot)
+    // methods in this class can call these methods, but code outside this class cannot)
 
     /* Returns true if the password’s length meets the minimum requirement of 8 characters
        and false otherwise.
      */
     private boolean isLongEnough() {
-        if (password.length() >= 8){
-            return true;
-        } else {
-            return false;
-        }
+        return (password.length() >= 8);
     }
 
 
