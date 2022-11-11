@@ -30,7 +30,9 @@ public class PasswordClient {
             System.out.println(secpass.status());
             System.out.print("Try again: ");
             password = scanner.nextLine();
+            secpass.setPassword(password);
+
         }
-        System.out.println(secpass.isSecure());
+        System.out.println(secpass.status());
     }
 }

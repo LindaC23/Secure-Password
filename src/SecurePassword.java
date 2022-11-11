@@ -42,14 +42,27 @@ public class SecurePassword {
         The password must contain a special symbol: ! @ # $ % ^ & * ?"
     */
     public String status() {
-        String status = "Password is secure";
-        if (!isLongEnough()){
-            status = "Password does not meet length requirements" + "\n";
+        String requirements = "";
+        if (isSecure()){
+            return "Password is secure";
+        } else {
+            if (!isLongEnough()){
+                requirements += "The password must be at least 8 characters" + "\n";
+            }
+            if (!containsUppercase()){
+                requirements += "The password must contain at least one uppercase letter" + "\n";
+            }
+            if (!containsLowercase()){
+                requirements += "The password must contain at least one lowercase letter" + "\n";
+            }
+            if (!containsDigit()){
+                requirements += "The password must contain at least one numeric digit" + "\n";
+            }
+            if (!containsSpecialSymbol()){
+                requirements += "The password must contain a special symbol: ! @ # $ % ^ & * ?" + "\n";
+            }
         }
-        if (!containsSpecialSymbol()){
-            status = "Password does not meet special symbol requirements";
-        }
-        return status;
+        return requirements;
     }
 
 
